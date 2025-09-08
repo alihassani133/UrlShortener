@@ -34,7 +34,7 @@
 
 2- **مدل داده**:
    - مدل `ShortUrl` با دو پراپرتی `ShortCode` (کلید اصلی) و `OriginalUrl` تعریف شد.
-   - مدل `ShortenRequest` با پراپرتی `OriginalUrl` برای استفاده درر کنترلر `UrlShortenerController` و دریافت لینک اصلی تعریف شد.
+   - مدل `ShortenRequest` با پراپرتی `OriginalUrl` برای استفاده در کنترلر `UrlShortenerController` و دریافت لینک اصلی تعریف شد.
    - از `ApplicationDbContext` برای ارتباط با دیتابیس استفاده شد.
 
 3- **لایه Repository**:
