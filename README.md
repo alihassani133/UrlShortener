@@ -55,7 +55,7 @@
 
 7- **تست و دیباگ**:
    - از Swagger برای تست اولیه استفاده شد.
-   - یک مجموعه Postman (`UrlShortenerAPI.postman_collection.json`) برای تست endpointها ایجاد و در مخزن قرار گرفت.
+   - یک مجموعه Postman (`UrlShortenerAPITest.postman_collection.json`) برای تست endpointها ایجاد و در مخزن قرار گرفت.
 
 
 ---
@@ -95,4 +95,4 @@
 ---
 
 ## مهم:
-- مجموعه Postman در فایل `UrlShortenerAPI.postman_collection.json` در پوشه‌ی docs ارائه شده است.
+- مجموعه Postman در فایل `UrlShortenerAPITest.postman_collection.json` در پوشه‌ی docs ارائه شده است.
