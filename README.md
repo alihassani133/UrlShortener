@@ -64,22 +64,7 @@
 ### روش انتخاب شده
 - به جای استفاده از شناسه‌های عددی افزایشی (مانند Auto-increment ID) از یک الگوریتم تولید رشته تصادفی استفاده شد.
 - کدهای کوتاه 6 کاراکتری از مجموعه کاراکترهای `a-z`, `A-Z`, `0-9` (62 کاراکتر) تولید می‌شوند.
-- کد نمونه در `UrlShortenerService.cs`:
- 
 
-  ```csharp
-  private async Task<string> GenerateShortCodeAsync(string longUrl)
-  {
-      const string Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      var random = new Random();
-      string shortCode;
-      do
-      {
-          shortCode = new string(Enumerable.Repeat(Chars, 6).Select(s => s[random.Next(s.Length)]).ToArray());
-      } while (await _repository.GetByShortCodeAsync(shortCode) != null);
-      return shortCode;
-  }
-  ```
 
 ### مزایا
 - **غیرقابل پیش‌بینی بودن**: کدها ترتیبی نیستند، بنابراین حدس زدن آن‌ها دشوار است و امنیت بیشتری فراهم می‌کند.
