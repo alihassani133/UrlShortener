@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "cb5dac1f-08c2-4a9b-8c69-702f24ad7ced",
-		"name": "UrlShortenerAPITest",
+		"_postman_id": "64d0c1ab-a288-4de3-a000-ea3c1537d8dc",
+		"name": "UrlShortnerAPITest_2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48235992",
-		"_collection_link": "https://alihassaniofficial1-7720696.postman.co/workspace/Ali-Hassani's-Workspace~59892081-69cc-423b-8ca9-4fadf0e97685/collection/48235992-cb5dac1f-08c2-4a9b-8c69-702f24ad7ced?action=share&source=collection_link&creator=48235992"
+		"_collection_link": "https://alihassaniofficial1-7720696.postman.co/workspace/Ali-Hassani's-Workspace~59892081-69cc-423b-8ca9-4fadf0e97685/collection/48235992-64d0c1ab-a288-4de3-a000-ea3c1537d8dc?action=share&source=collection_link&creator=48235992"
 	},
 	"item": [
 		{
@@ -14,7 +14,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"originalUrl\": \"https://github.com/codehalic/backend-intern-task\"\r\n}",
+					"raw": "{\r\n  \"originalUrl\": \"\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -22,7 +22,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:7213/api/Url/shorten",
+					"raw": "https://localhost:7213/api/UrlShortener/shorten",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -30,7 +30,7 @@
 					"port": "7213",
 					"path": [
 						"api",
-						"Url",
+						"UrlShortener",
 						"shorten"
 					]
 				}
@@ -48,48 +48,22 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": ""
 				},
 				"url": {
-					"raw": "https://localhost:7213/vI6Zfm",
+					"raw": "https://localhost:7213/api/Vhepi0",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
 					"port": "7213",
 					"path": [
-						"vI6Zfm"
+						"api",
+						"Vhepi0"
 					]
 				}
 			},
 			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
-			}
 		}
 	]
 }

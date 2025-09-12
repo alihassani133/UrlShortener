@@ -14,29 +14,27 @@ namespace UrlShortener.Services
         {
             _repository = repository;
         }
-        public async Task<string?> GetOriginalUrlAsync(string shortCode)
+        public async Task<string?> GetOriginalUrlAsync(string shortCode, CancellationToken cancellationToken = default)
         {
-            var shortUrl = await _repository.GetByShortCodeAsync(shortCode);
+            var shortUrl = await _repository.GetByShortCodeAsync(shortCode, cancellationToken);
             return shortUrl?.OriginalUrl;
         }
 
-        public async Task<string> ShortenUrlAsync(string originalUrl)
+        public async Task<string> ShortenUrlAsync(string originalUrl, CancellationToken cancellationToken = default)
         {
-            if (!Uri.TryCreate(originalUrl, UriKind.Absolute, out _))
-                throw new ArgumentException("Invalid Url");
-
             string shortCode;
             do
             {
+                cancellationToken.ThrowIfCancellationRequested();
                 shortCode = new string(Enumerable.Repeat(Chars, CodeLength)
                     .Select(s => s[_random.Next(s.Length)]).ToArray());
             }
-            while (await _repository.GetByShortCodeAsync(shortCode) != null);
+            while (await _repository.GetByShortCodeAsync(shortCode, cancellationToken) != null);
 
             var shortUtl = new ShortUrl { ShortCode = shortCode, OriginalUrl = originalUrl };
 
-            await _repository.AddAsync(shortUtl);
-            await _repository.SaveChangesAsync();
+            await _repository.AddAsync(shortUtl, cancellationToken);
+            await _repository.SaveChangesAsync(cancellationToken);
 
             return shortCode;
         }

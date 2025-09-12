@@ -14,13 +14,21 @@ namespace UrlShortener.Migrations
                 name: "ShortUrls",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ShortCode = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     OriginalUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ShortUrls", x => x.ShortCode);
+                    table.PrimaryKey("PK_ShortUrls", x => x.Id);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShortUrls_ShortCode",
+                table: "ShortUrls",
+                column: "ShortCode",
+                unique: true);
         }
 
         /// <inheritdoc />

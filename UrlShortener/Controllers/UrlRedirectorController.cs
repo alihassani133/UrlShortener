@@ -4,7 +4,7 @@ using UrlShortener.Services;
 namespace UrlShortener.Controllers
 {
     [ApiController]
-    [Route("/{shortCode}")]
+    [Route("api/{shortCode}")]
     public class UrlRedirectorController : ControllerBase
     {
         private readonly IUrlShortenerService _service;
@@ -14,9 +14,9 @@ namespace UrlShortener.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> RedirectToOriginalUrl(string shortCode)
+        public async Task<IActionResult> RedirectToOriginalUrl(string shortCode, CancellationToken cancellationToken)
         {
-            var originalUrl = await _service.GetOriginalUrlAsync(shortCode);
+            var originalUrl = await _service.GetOriginalUrlAsync(shortCode, cancellationToken);
             if (originalUrl == null)
                 return NotFound();
 
