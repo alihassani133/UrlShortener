@@ -1,6 +1,5 @@
 
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using UrlShortener.Data;
 using UrlShortener.Models;
@@ -28,7 +27,11 @@ namespace UrlShortener
             builder.Services.AddScoped<IValidator<ShortenRequest>, ShortenRequestValidator>();
             builder.Services.AddScoped<IShortUrlRepository, ShortUrlRepository>();
             builder.Services.AddScoped<IUrlShortenerService, UrlShortenerService>();
-            builder.Services.AddLogging();
+            builder.Services.AddLogging(logging => { 
+                logging.ClearProviders();
+                logging.AddConsole();
+                logging.SetMinimumLevel(LogLevel.Debug);
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
